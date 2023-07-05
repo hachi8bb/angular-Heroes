@@ -9,7 +9,6 @@ import { HeroService } from '../hero.service';
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrls: [ './hero-detail.component.css' ],
-  template: '<h2>{{hero.name | uppercase}} Details</h2>'
 })
 
 export class HeroDetailComponent implements OnInit {
