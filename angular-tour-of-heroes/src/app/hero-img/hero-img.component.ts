@@ -12,11 +12,11 @@ import { InMemoryDataService } from '../in-memory-data.service';
 })
 export class HeroImgComponent {
 
-  id: string | null; // プロパティを追加する
-
+  id: string | null;
 
   constructor(@Inject(ActivatedRoute) private route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('id') ?? null;
+    console.log(this.id);
   }
   
 
