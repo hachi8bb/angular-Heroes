@@ -14,6 +14,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
+import { NavComponent } from './common/nav/nav.component';
+import { HeroImgComponent } from './hero-img/hero-img.component';
 
 
 
@@ -37,7 +39,9 @@ import { MessagesComponent } from './messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    NavComponent,
+    HeroImgComponent
   ],
   bootstrap: [ AppComponent ]
 })
