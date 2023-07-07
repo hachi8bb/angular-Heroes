@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'link1', component: DashboardComponent },
   { path: 'link2', component: DashboardComponent },
-  { path: 'link3', component: DashboardComponent },
 ];
 
 @NgModule({
