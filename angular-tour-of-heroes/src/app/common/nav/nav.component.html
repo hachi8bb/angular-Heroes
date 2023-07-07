@@ -1,1 +1,19 @@
-<p>With great power comes great responsibility.</p>
+<div class="container">
+    <div class="maxim">
+        <p>With great power comes great responsibility.</p>
+    </div>
+
+    <div class="menu-button">
+        <mat-toolbar class="menu-bar">
+            <span class="spacer"></span>
+            <button (click)="toggleLinks()" class="menu-button-list" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <ul *ngIf="showLinks">
+                <li><a (click)="navigateTo('/link1')">リンク1</a></li>
+                <li><a (click)="navigateTo('/link2')">リンク2</a></li>
+                <li><a (click)="navigateTo('/link3')">リンク3</a></li>
+            </ul>
+        </mat-toolbar>
+    </div>
+</div>
