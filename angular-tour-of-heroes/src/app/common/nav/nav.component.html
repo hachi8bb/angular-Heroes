@@ -1,1 +1,19 @@
-<p>With great power comes great responsibility.</p>
+<div class="container">
+    <div class="maxim">
+        <p>Tour of Heroes</p>
+    </div>
+
+    <div class="menu-button">
+        <mat-toolbar class="menu-bar">
+            <span class="spacer"></span>
+            <button (click)="toggleLinks()" class="menu-button-list" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <ul class="links-list" *ngIf="showLinks">
+                <li><a (click)="navigateTo('/link1')">Dashboard</a></li>
+                <li><a (click)="navigateTo('/link2')">Heroes</a></li>
+                <li><a (click)="navigateTo('/link3')">Movie-List</a></li>
+            </ul>
+        </mat-toolbar>
+    </div>
+</div>
