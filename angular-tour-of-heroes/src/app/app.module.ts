@@ -20,6 +20,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { NavComponent } from './common/nav/nav.component';
 import { HeroImgComponent } from './hero-img/hero-img.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 
 
@@ -32,9 +33,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatIconModule,
 
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
@@ -48,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MessagesComponent,
     HeroSearchComponent,
     NavComponent,
-    HeroImgComponent
+    HeroImgComponent,
+    MovieListComponent
   ],
   bootstrap: [ AppComponent ]
 })

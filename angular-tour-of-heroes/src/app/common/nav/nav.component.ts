@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 export class NavComponent {
   showLinks = false;
-
+  
   constructor(private router: Router) {}
 
   toggleLinks() {

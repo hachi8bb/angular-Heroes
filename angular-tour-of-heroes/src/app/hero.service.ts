@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';  // Web APIのURL
+  private heroesUrl = 'api/heroes';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,7 +21,6 @@ export class HeroService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  /** サーバーからヒーローを取得する */
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
@@ -30,12 +29,11 @@ export class HeroService {
       );
   }
 
-  /** IDによりヒーローを取得する。idが見つからない場合は`undefined`を返す。 */
   getHeroNo404<Data>(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/?id=${id}`;
     return this.http.get<Hero[]>(url)
       .pipe(
-        map(heroes => heroes[0]), // {0|1} 要素の配列を返す
+        map(heroes => heroes[0]),
         tap(h => {
           const outcome = h ? 'fetched' : 'did not find';
           this.log(`${outcome} hero id=${id}`);
@@ -44,7 +42,6 @@ export class HeroService {
       );
   }
 
-  /** IDによりヒーローを取得する。見つからなかった場合は404を返却する。 */
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
@@ -53,10 +50,8 @@ export class HeroService {
     );
   }
 
-  /* 検索語を含むヒーローを取得する */
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
-      // 検索語がない場合、空のヒーロー配列を返す
       return of([]);
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
@@ -65,9 +60,6 @@ export class HeroService {
     );
   }
 
-  //////// Save methods //////////
-
-  /** POST: サーバーに新しいヒーローを登録する */
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
@@ -75,7 +67,6 @@ export class HeroService {
     );
   }
 
-  /** DELETE: サーバーからヒーローを削除 */
   deleteHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
 
@@ -85,7 +76,6 @@ export class HeroService {
     );
   }
 
-  /** PUT: サーバー上でヒーローを更新 */
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
